@@ -2,7 +2,7 @@ import shutil
 import os
 from PIL import Image
 import time
-
+import threading
 class converter():
 
     def __init__(self):
@@ -38,10 +38,17 @@ class converter():
             im.save("{0}.pbm".format(COUNT),optimize=True,quality=10)
             time.sleep(1)
             COUNT=COUNT+1
-            
 
-#have to call an object to actually use it
+    def main(self):
+        uno=threading.Thread(target=conv.convert(),)
+        uno.start()
+        uno.join()
+        conv.move_files()
+
 conv=converter()
+conv.main()
+#have to call an object to actually use it
+#conv=converter()
 
-conv.convert()
-conv.move_files()
+#conv.convert()
+#conv.move_files()
