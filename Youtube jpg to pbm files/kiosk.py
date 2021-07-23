@@ -12,10 +12,10 @@ lbl = Label(window, text="1)Place files you want to convert in images\n2)click t
 lbl.grid(column=0, row=0)
 
 def clicked():
-    entrypath = askdirectory(title='Select Source Folder') # shows dialog box and return the path
-    destpath = askdirectory(title='Select Destination Folder') # shows dialog box and return the path  
+    file_source = askdirectory(title='Select Source Folder') # shows dialog box and return the path
+    file_destination = askdirectory(title='Select Destination Folder') # shows dialog box and return the path  
     import converter_final
-    conv=converter_final.converter(entrypath,destpath)
+    conv=converter_final.converter(file_source,file_destination)
     conv.main()
     lbl.configure(text="Processing files !!")
 

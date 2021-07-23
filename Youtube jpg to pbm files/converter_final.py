@@ -39,11 +39,9 @@ class converter():
             COUNT=COUNT+1
 
     def main(self):
-        conv.convert()
-        conv.move_files()
+        self.convert()
+        self.move_files()
 
-conv=converter()
-conv.main()
 #have to call an object to actually use it
 #conv=converter()
 
