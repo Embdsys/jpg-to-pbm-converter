@@ -1,13 +1,12 @@
 import shutil
-import os
 from PIL import Image
+import os
 import time
-import threading
 class converter():
-
-    def __init__(self):
-        self.file_source = 'images'
-        self.file_destination = 'processed_images'
+#To give object atributtes call as conv = converter('PATH SOURCE IMAGES','PATH DESTINATION FOLDER')
+    def __init__(self,file_source,file_destination):
+        self.file_source = file_source
+        self.file_destination = file_destination
         #self.COUNT=0
 
     #move .pbm files from images to processed_images 
@@ -40,9 +39,7 @@ class converter():
             COUNT=COUNT+1
 
     def main(self):
-        uno=threading.Thread(target=conv.convert(),)
-        uno.start()
-        uno.join()
+        conv.convert()
         conv.move_files()
 
 conv=converter()
